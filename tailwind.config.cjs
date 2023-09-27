@@ -5,7 +5,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["Mona",...defaultTheme.fontFamily.sans],
+				mona: ["Mona", ...defaultTheme.fontFamily.sans],
+				nasa: ["Nasa", ...defaultTheme.fontFamily.sans]
 			},
 		},
 	},

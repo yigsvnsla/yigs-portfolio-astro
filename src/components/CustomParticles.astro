@@ -1,0 +1,197 @@
+---
+import Particles from "astro-particles";
+import type { ISourceOptions } from "tsparticles-engine";
+
+const options: ISourceOptions = {
+	pauseOnOutsideViewport: true,
+	detectRetina: true,
+	fpsLimit: 120,
+	background: {
+		color: "#000",
+	},
+	fullScreen: {
+		zIndex: -1,
+		enable: true,
+	},
+	interactivity: {
+		detectsOn: "window",
+		events: {
+			resize: {
+				delay: 0.1,
+				enable: true,
+			},
+		},
+	},
+	particles: {
+		color: {
+			value: "#ffffff",
+			animation: {
+				h: {
+					count: 0,
+					enable: false,
+					offset: 0,
+					speed: 1,
+					delay: 0,
+					decay: 0,
+					sync: true,
+				},
+				s: {
+					count: 0,
+					enable: false,
+					offset: 0,
+					speed: 1,
+					delay: 0,
+					decay: 0,
+					sync: true,
+				},
+				l: {
+					count: 0,
+					enable: false,
+					offset: 0,
+					speed: 1,
+					delay: 0,
+					decay: 0,
+					sync: true,
+				},
+			},
+		},
+		move: {
+			angle: {
+				offset: 0,
+				value: 90,
+			},
+			attract: {
+				distance: 200,
+				enable: false,
+				rotate: {
+					x: 600,
+					y: 600,
+				},
+			},
+			center: {
+				x: 50,
+				y: 50,
+				mode: "percent",
+				radius: 0,
+			},
+			decay: 0,
+			distance: {},
+			direction: "none",
+			drift: 0,
+			enable: true,
+			gravity: {
+				acceleration: 9.81,
+				enable: false,
+				inverse: false,
+				maxSpeed: 50,
+			},
+			path: {
+				clamp: true,
+				delay: {
+					random: {
+						enable: false,
+						minimumValue: 0,
+					},
+					value: 0,
+				},
+				enable: false,
+				options: {},
+			},
+			outModes: {
+				default: "out",
+				bottom: "out",
+				left: "out",
+				right: "out",
+				top: "out",
+			},
+			random: true,
+			size: false,
+			speed: 0.2,
+			spin: {
+				acceleration: 0,
+				enable: false,
+			},
+			straight: false,
+			trail: {
+				enable: false,
+				length: 10,
+				fill: {},
+			},
+			vibrate: false,
+			warp: false,
+		},
+		number: {
+			density: {
+				enable: true,
+				width: 1920,
+				height: 1080,
+			},
+			limit: 0,
+			value: 200,
+		},
+		opacity: {
+			random: {
+				enable: true,
+				minimumValue: 0.1,
+			},
+			value: {
+				min: 0,
+				max: 1,
+			},
+			animation: {
+				count: 0,
+				enable: true,
+				speed: 0.2,
+				decay: 0,
+				delay: 0,
+				sync: false,
+				mode: "auto",
+				startValue: "random",
+				destroy: "none",
+				minimumValue: 0,
+			},
+		},
+		size: {
+			random: {
+				enable: true,
+				minimumValue: 0.5,
+			},
+			value: {
+				min: 0.6,
+				max: 2,
+			},
+		},
+	},
+};
+---
+
+<script>
+	import {
+		type Container,
+		type Engine,
+		tsParticles,
+	} from "tsparticles-engine";
+	import { loadFull } from "tsparticles";
+
+	// the function name is the parameter passed to the init attribute
+	// required
+	// add the function to window is mandatory, it will be searched there
+	(window as any).particlesInit = async function (engine: Engine) {
+		await loadFull(engine);
+	};
+
+	// the function name is the parameter passed to the loaded attribute
+	// optional
+	// add the function to window is mandatory, it will be searched there
+	(window as any).particlesLoaded = function (container: Container) {
+		console.log("particlesLoaded callback");
+	};
+</script>
+
+<Particles class="" id="tsparticles" options={options} init="particlesInit" />
+<style is:inline>
+	astro-particles {
+		position: fixed !important;
+		
+	}
+</style>

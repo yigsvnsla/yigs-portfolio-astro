@@ -1,7 +1,95 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Particles from "../components/CustomParticles.astro";
+import Layout from "../layouts/Layout.astro";
 ---
-<Layout title="Welcome to Astro.">
-dsadsa
-</Layout>
 
+<Layout title="Welcome to Astro.">
+	<Particles />
+	<section class="grid grid-cols-1 grid-flow-row p-4 sm:grid-cols-2 justify-items-center">
+		<div class="my-6">
+			<picture>
+				<source srcset="/images/Astronaut-Space.png" type="image/png" />
+				<img
+					id="picture-astronaut"
+					width="1280"
+					height="720"
+					class="object-cover drop-shadow-md w-full h-full max-w-xs grayscale-[.4] brightness-90"
+					decoding="async"
+					src="/images/Astronaut-Space.png"
+					alt="an avif image"
+				/>
+			</picture>
+		</div>
+		<div class="bg-black bg-opacity-75 flex flex-col flex-nowrap items-center">
+			<span class="text-white leading-none text-center block tracking-widest">Hello I am</span>
+			<h1 class="text-white drop-shadow-md leading-[5rem] text-8xl tracking-widest font-nasa text-center antialiased">YIGS</h1>
+			<h2 id="my-name" class="p-2 leading-none text-sm text-center antialiased tracking-widest select-none rounded-full  font-semibold  border border-white w-10/12">Jesús Guzmán</h2>
+		</div>
+	</section>
+</Layout>
+<style>
+	#picture-astronaut{
+		animation: float 20s ease-in-out infinite;
+	}
+
+	@keyframes float {
+	0% {
+		/* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
+		transform: translatey(0px);
+	}
+	50% {
+		/* box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2); */
+		transform: translatey(-20px);
+	}
+	100% {
+		/* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6); */
+		transform: translatey(0px);
+	}
+	}
+
+	#my-name{
+		z-index: 1;
+		position: relative;
+		overflow: hidden;
+		transition: all;
+		transition-duration: .3s;
+		transition-delay: 300ms;
+	}
+
+	#my-name:before, #my-name:after {
+	z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+	background-color: #fff;
+	transition: all;
+	transition-duration: 1s;
+	
+}
+
+#my-name:before {
+  transform: translateX(-50%) skew(-45deg);
+	width: 100%;
+}
+
+#my-name:after {
+  transform: translateX(50%) skew(-45deg);
+	width: 100%;
+}
+
+#my-name:hover {
+  color: #fff;
+}
+
+#my-name:hover:before {
+  transform: translateX(-105%) skew(-45deg);
+	
+}
+#my-name:hover:after {
+  transform: translateX(105%) skew(-45deg);
+} 
+
+</style>
