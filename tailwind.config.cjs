@@ -8,6 +8,10 @@ module.exports = {
 				mona: ["Mona", ...defaultTheme.fontFamily.sans],
 				nasa: ["Nasa", ...defaultTheme.fontFamily.sans]
 			},
+			cursor: {
+				nasaPointer: "url(/cursor/pointer.cur), pointer",
+				nasaDefault: "url(/cursor/default.cur), default"
+			}
 		},
 	},
 	plugins: [],

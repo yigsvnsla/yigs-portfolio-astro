@@ -8,7 +8,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="cursor-nasaDefault">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -17,14 +17,10 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="cursor-nasaDefault">
 		<slot />
 	</body>
 	<style is:global>
-		* {
-			cursor: url(/cursor/cur.cur), auto !important;
-		}
-
 		/* Register your custom font family and tell the browser where to find it. */
 		@font-face {
 			font-family: "Mona";
